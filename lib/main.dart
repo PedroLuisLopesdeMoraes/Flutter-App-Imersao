@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/data/restaurant_data.dart';
+import 'package:myapp/model/restaurant.dart';
 import 'package:myapp/ui/_core/app_theme.dart';
 import 'package:myapp/ui/splash/splash_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  List<Restaurant> listRestaurant = await RestaurantData().getRestaurants();
+  print(listRestaurant);
   runApp(MyApp());
 }
 
@@ -11,9 +16,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: AppTheme.appTheme,
-      home: SplashScreen(),
-    );
+    return MaterialApp(theme: AppTheme.appTheme, home: SplashScreen());
   }
 }
