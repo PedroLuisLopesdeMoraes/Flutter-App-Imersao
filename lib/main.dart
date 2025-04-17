@@ -8,6 +8,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   List<Restaurant> listRestaurant = await RestaurantData().getRestaurants();
   print(listRestaurant);
+  print(listRestaurant.length);
   runApp(MyApp());
 }
 
